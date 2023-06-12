@@ -14,7 +14,7 @@ params ["_player"];
  * 9: Other parameters [showDisabled,enableInside,canCollapse,runOnHover,doNotCheckLOS] <ARRAY> (Optional)
  * 10: Modifier function <CODE> (Optional)
  */
-
+/*
 private _radioInInventory = _player
 [
 	"MusicRadioPower",
@@ -24,7 +24,7 @@ private _radioInInventory = _player
 	};],
 	"",
 	call 
-] call ace_interact_menu_fnc_createAction;
+] call ace_interact_menu_fnc_createAction;*/
 /*
  * Argument:
  * 0: Object the action should be assigned to <OBJECT>
@@ -33,8 +33,11 @@ private _radioInInventory = _player
  * 3: Action <ARRAY>
  */
 
+//["ace_interactMenuOpened", {systemChat str _this}] call CBA_fnc_addEventHandler;
+hint "OMFG THIS FUCKING WORKED";
+/*
 _action = ["MusicRadioPower","Turn On","",{_target setDamage 1;},{true},{},[parameters], [0,0,0], 100] call ace_interact_menu_fnc_createAction;
 [cursorTarget, 0, ["ACE_TapShoulderRight"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 private _action = []
-[_musicRadioObject, 1, ["ACE_SelfActions", "ACE_Equipment"], _action] call ace_interact_menu_fnc_addActionToObject; 
+[_musicRadioObject, 1, ["ACE_SelfActions", "ACE_Equipment"], _action] call ace_interact_menu_fnc_addActionToObject;*/
