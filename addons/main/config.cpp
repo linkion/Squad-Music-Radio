@@ -4,7 +4,7 @@ class CfgPatches {
 	class ADDON {
 		name = CSTRING(component);
 		units[] = {};
-		weapons[] = {};
+		weapons[] = {"SMRA_musicRadio"};
 		requiredVersion = REQUIRED_VERSION;
 		requiredAddons[] = {"CBA_main", "ACE_main"};
 		author = "You";
