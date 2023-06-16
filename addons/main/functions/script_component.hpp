@@ -1,1 +1,1 @@
-#include "\z\smra\addons\main\script_component.hpp"
+#include "z\SMRA\addons\main\script_component.hpp"

@@ -18,3 +18,5 @@ class CfgPatches {
 #include "CfgMagazines.hpp"
 
 #include "CfgVehicles.hpp"
+
+#include "gui.hpp"
