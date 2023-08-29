@@ -4,6 +4,5 @@
 
 #define WINDOW_W 140
 
-private _display = findDisplay 313 createDisplay "RscDisplayEmpty";
-uiNamespace setVariable ["SMRA_main_display", _display];
+GVAR(RadioMenuDisplay) = findDisplay 313 createDisplay "SMRA_RadioMenu";
 

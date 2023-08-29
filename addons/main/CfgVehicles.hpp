@@ -5,7 +5,7 @@ class CfgVehicles {
             class ACE_Equipment {
                 class SMRA_Interact {
                     displayName = "Music Radio";
-                    condition = QUOTE(true);
+                    condition = QUOTE([] call FUNC(hasRadio));
                     exceptions[] = {"isNotInside", "isNotSitting"};
                     statement = ""; // With no statement the action will only show if it has children
                     priority = 0.1;
