@@ -1,3 +1,2 @@
-PREP(playerAceInit);
-PREP(radioPowerOn);
+PREP(radioPower);
 PREP(getMusicConfigs);
