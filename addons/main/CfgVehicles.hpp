@@ -10,17 +10,23 @@ class CfgVehicles {
                     statement = ""; // With no statement the action will only show if it has children
                     priority = 0.1;
                     icon = "";
-                    class SMRA_RadioPowerOn {
+                    class GVAR(RadioPowerOn) {
                         displayName = "Radio Power On";
                         condition = QUOTE(true);
                         icon = QUOTE();
                         statement = QUOTE([true] call FUNC(radioPower));
                     };
-                    class SMRA_RadioPowerOff {
+                    class GVAR(RadioPowerOff) {
                         displayName = "Radio Power Off";
                         condition = QUOTE(true);
                         icon = QUOTE();
                         statement = QUOTE([false] call FUNC(radioPower));
+                    };
+                    class GVAR(TuneRadio) {
+                        displayName = "Tune Radio";
+                        condition = QUOTE(true);
+                        icon = QUOTE();
+                        statement = QUOTE([] call FUNC(openMusicRadio));
                     };
                 };
             };
