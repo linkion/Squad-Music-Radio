@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+disableSerialization;
 
 private _musicConfigs = "true" configClasses (configFile >> "CfgMusic");
 private _musicConfigHashMap = createHashMap;

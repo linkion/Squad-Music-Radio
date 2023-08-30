@@ -1,4 +1,5 @@
 #include "script_component.hpp"
+disableSerialization;
 
 params ["_power"];
 
