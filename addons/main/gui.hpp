@@ -108,9 +108,9 @@ class GVAR(RadioMenu) {
 			//onTreeMouseHold = "systemChat str ['onTreeMouseHold',_this]; false";
 			//onTreeMouseExit = "systemChat str ['onTreeMouseExit',_this]; false";
 		};
-		class PlayButton: ctrlButton
+		class QueueButton: ctrlButton
 		{
-			idc = 1600;
+			idc = RADIO_MENU_QUEUEBUTTON_IDC;
 			text = "Queue Music";
 			x = QUOTE(1 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
 			y = QUOTE(22 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
@@ -119,7 +119,7 @@ class GVAR(RadioMenu) {
 		};
 		class StopButton: ctrlXSliderH
 		{
-			idc = 1601;
+			idc = RADIO_MENU_VOLUME_IDC;
 			text = "Volume";
 			x = QUOTE(9 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
 			y = QUOTE(22 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
