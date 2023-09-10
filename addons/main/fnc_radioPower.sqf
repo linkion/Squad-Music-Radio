@@ -9,7 +9,6 @@ if (isNil QGVAR(radioListeners)) then { GVAR(radioListeners) = createHashMap; };
 
 GVAR(radioPower) = _power;
 
-systemChat format ["radio power: %1", _power];
 
 if (_power) then {
 	[] spawn FUNC(processQueue);
