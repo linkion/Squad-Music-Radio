@@ -33,7 +33,9 @@ if (_power) then {
 
 if (isNil QGVAR(musicEventHandle)) then {
 	GVAR(musicEventHandle) = addMusicEventHandler ["MusicStop", {
-		[] call FUNC(processQueue);
+		if (GVAR(radioPower)) then {
+			[] call FUNC(processQueue);
+		}
 	}];
 };
 
