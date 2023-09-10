@@ -2,6 +2,7 @@
 disableSerialization;
 
 private _musicConfigs = "true" configClasses (configFile >> "CfgMusic");
+private _musicThemes = [];
 private _musicConfigHashMap = createHashMap;
 {
 	// Current result is saved in variable _x
@@ -16,8 +17,9 @@ private _musicConfigHashMap = createHashMap;
 		continue;
 	};
 
-	private _theme = toLower (getText (_x >> "theme"));
+	private _theme = toLower(getText (_x >> "theme"));
 	if (isNil "_theme") then { _theme = "" };
+	_musicThemes pushBackUnique _theme;
 	private _type = toLower (getText (_x >> "type"));
 	if (isNil "_type") then { _type = "" };
 	private _musicClass = toLower (getText (_x >> "musicClass"));
@@ -31,3 +33,4 @@ private _musicConfigHashMap = createHashMap;
 } forEach _musicConfigs;
 
 GVAR(musicConfigs) = _musicConfigHashMap;
+GVAR(musicThemes) = _musicThemes;
