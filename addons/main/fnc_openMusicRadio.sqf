@@ -8,6 +8,7 @@ GVAR(RadioMenuDisplay) = createDialog QGVAR(RadioMenu);
 
 private _ctrlTree = findDisplay RADIO_MENU_IDD displayCtrl RADIO_MENU_TREE_IDC;
 private _ctrlQueueButton = findDisplay RADIO_MENU_IDD displayCtrl RADIO_MENU_QUEUEBUTTON_IDC;
+private _ctrlSkipButton = findDisplay RADIO_MENU_IDD displayCtrl RADIO_MENU_SKIPBUTTON_IDC;
 
 if (isNil QGVAR(musicConfigs)) then { [] call FUNC(getMusicConfigs); };
 
@@ -65,3 +66,33 @@ _ctrlQueueButton ctrlAddEventHandler ["ButtonClick", {
 	};
 }];
 
+_ctrlSkipButton ctrlAddEventHandler ["ButtonClick", {
+	params ["_ctrl"];
+	private _currentQueue = GVAR(musQueue) get (groupId group player);
+	private _listeners = GVAR(radioListeners) get (groupId group player);
+	private _skipArray = GVAR(radioSkip) get (groupId group player);
+	if (isNil "_currentQueue") exitWith { systemChat "No song playing" };
+	if (isNil "_listeners") exitwith {
+		systemChat "Can't skip. You're not listening to the radio.";
+	};
+	if (isNil "_skipArray") then {
+		_skipArray = [];
+		GVAR(radioSkip) set [groupId group player, [player]];
+	};
+
+	private _votes = count _skipArray;
+	_votes = _votes + 1;
+	private _votesNeeded = count _listeners;
+
+	player groupChat format ["I'd like to skip the current song (%1/%2)", _votes, _votesNeeded];
+	if (_votes >= _votesNeeded) then {
+		player groupChat "Skipping...";
+		
+		_currentQueue deleteAt 0;
+
+		publicVariable QGVAR(musQueue);
+		remoteExec [QFUNC(processQueue), _listeners];
+	} else {
+		_skipArray pushBackUnique player;
+	};
+}];

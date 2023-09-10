@@ -117,6 +117,15 @@ class GVAR(RadioMenu) {
 			w = QUOTE(6 * GUI_GRID_CENTER_W);
 			h = QUOTE(2 * GUI_GRID_CENTER_H);
 		};
+		class SkipButton: ctrlButton
+		{
+			idc = RADIO_MENU_SKIPBUTTON_IDC;
+			text = "Vote to Skip";
+			x = QUOTE(8 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			y = QUOTE(22 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			w = QUOTE(6 * GUI_GRID_CENTER_W);
+			h = QUOTE(2 * GUI_GRID_CENTER_H);
+		};
 		class Cancel: ctrlButtonClose
 		{
 			idc = 1602;
