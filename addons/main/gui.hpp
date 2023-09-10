@@ -20,6 +20,38 @@ class GVAR(RadioMenu) {
 			w = QUOTE(40 * GUI_GRID_CENTER_W);
 			h = QUOTE(1 * GUI_GRID_CENTER_H);
 		};
+		class QueueBackground: ctrlStaticBackground
+		{
+			idc = -1;
+			x = QUOTE(40.5 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			y = QUOTE(0 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			w = QUOTE(10 * GUI_GRID_CENTER_W);
+			h = QUOTE(18 * GUI_GRID_CENTER_H);
+		};
+		class QueueHeader: ctrlStaticTitle
+		{
+			text = "Radio Queue";
+			x = QUOTE(40.5 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			y = QUOTE(0 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			w = QUOTE(10 * GUI_GRID_CENTER_W);
+			h = QUOTE(1 * GUI_GRID_CENTER_H);
+		};
+		class ListenersBackground: ctrlStaticBackground
+		{
+			idc = -1;
+			x = QUOTE(40.5 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			y = QUOTE(18.5 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			w = QUOTE(10 * GUI_GRID_CENTER_W);
+			h = QUOTE(6.5 * GUI_GRID_CENTER_H);
+		};
+		class ListenersHeader: ctrlStaticTitle
+		{
+			text = "Listeners";
+			x = QUOTE(40.5 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			y = QUOTE(18.5 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			w = QUOTE(10 * GUI_GRID_CENTER_W);
+			h = QUOTE(1 * GUI_GRID_CENTER_H);
+		};
 	};
 	class Controls {
 		class MusicTreeSearch
@@ -128,11 +160,11 @@ class GVAR(RadioMenu) {
 		};
 		class nowPlayingStatic: ctrlStatic
 		{
-			x = QUOTE(14.5 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			x = QUOTE(15 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
 			y = QUOTE(20.75 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
 			w = QUOTE(16 * GUI_GRID_CENTER_W);
 			h = QUOTE(1.2 * GUI_GRID_CENTER_H);
-			text = "Now Playing";
+			text = "Now Playing AAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		};
 		class currentSongText: ctrlStatic
 		{
@@ -162,6 +194,24 @@ class GVAR(RadioMenu) {
 			h = QUOTE(1 * GUI_GRID_CENTER_H);
 			text = "00:00 / 00:00";
 			sizeEx = 0.03;
+		};
+		class queueList: ctrlListNbox
+		{
+			idc = RADIO_MENU_QUEUELIST_IDC;
+			x = QUOTE(40.7 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			y = QUOTE(1 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			w = QUOTE(9.6 * GUI_GRID_CENTER_W);
+			h = QUOTE(16 * GUI_GRID_CENTER_H);
+			sizeEx = 0.04;
+		};
+		class listenersList: ctrlListNbox
+		{
+			idc = RADIO_MENU_LISTENERSLIST_IDC;
+			x = QUOTE(40.7 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			y = QUOTE(18.75 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			w = QUOTE(9.6 * GUI_GRID_CENTER_W);
+			h = QUOTE(6.25 * GUI_GRID_CENTER_H);
+			sizeEx = 0.04;
 		};
 		class Cancel: ctrlButtonClose
 		{

@@ -1,8 +1,5 @@
 #include "script_component.hpp"
 disableSerialization;
-#define IDC_main_TREEVIEW 10
-
-#define WINDOW_W 140
 
 GVAR(RadioMenuDisplay) = createDialog QGVAR(RadioMenu);
 
@@ -37,6 +34,7 @@ if (isNil QGVAR(musicConfigs)) then { [] call FUNC(getMusicConfigs); };
 for "_i" from 0 to (_ctrlTree tvCount []) do {
 	_ctrlTree tvSortByValue [[_i], true];
 };
+[] call FUNC(processQueueList);
 
 
 _ctrlQueueButton ctrlAddEventHandler ["ButtonClick", {
@@ -60,6 +58,7 @@ _ctrlQueueButton ctrlAddEventHandler ["ButtonClick", {
 	if (GVAR(radioPower)) then {
 		[] call FUNC(processQueue);
 	};
+	[] call FUNC(processQueueList);
 }];
 
 _ctrlSkipButton ctrlAddEventHandler ["ButtonClick", {
@@ -91,6 +90,7 @@ _ctrlSkipButton ctrlAddEventHandler ["ButtonClick", {
 	} else {
 		_skipArray pushBackUnique player;
 	};
+	[] call FUNC(processQueueList);
 }];
 
 onEachFrame {

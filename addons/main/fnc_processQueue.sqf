@@ -45,4 +45,5 @@ if ((_currentTime - _timeStarted) > _musDur && _timeStarted > 0) then {
 		systemChat format ["Playing new song: %1", _musName];
 	};
 };
+[] call FUNC(processQueueList);
 
