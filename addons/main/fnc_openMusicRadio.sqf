@@ -4,16 +4,10 @@ disableSerialization;
 
 #define WINDOW_W 140
 
-if (isNil QGVAR(musVolume)) then {
-	GVAR(musVolume) = 1;
-};
-
 GVAR(RadioMenuDisplay) = createDialog QGVAR(RadioMenu);
 
 private _ctrlTree = findDisplay RADIO_MENU_IDD displayCtrl RADIO_MENU_TREE_IDC;
 private _ctrlQueueButton = findDisplay RADIO_MENU_IDD displayCtrl RADIO_MENU_QUEUEBUTTON_IDC;
-private _ctrlVolume = findDisplay RADIO_MENU_IDD displayCtrl RADIO_MENU_VOLUME_IDC;
-_ctrlVolume sliderSetPosition (GVAR(musVolume) / 5);
 
 if (isNil QGVAR(musicConfigs)) then { [] call FUNC(getMusicConfigs); };
 
@@ -69,11 +63,5 @@ _ctrlQueueButton ctrlAddEventHandler ["ButtonClick", {
 	if (GVAR(radioPower)) then {
 		[] call FUNC(processQueue);
 	};
-}];
-
-_ctrlVolume ctrlAddEventHandler ["SliderPosChanged", {
-	params ["_ctrl", "_value"];
-	GVAR(musVolume) = _value*5;
-	1 fadeMusic _value*5;
 }];
 

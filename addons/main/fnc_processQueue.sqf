@@ -32,11 +32,9 @@ if ((_currentTime - _timeStarted) > _musDur && _timeStarted > 0) then {
 } else {
 	if  (_timeStarted > 0) then {
 		playMusic [_musClass, _currentTime - _timeStarted];
-		0 fadeMusic GVAR(musVolume);
 		systemChat format ["Resuming song: %1 at %2", _musClass, _currentTime - _timeStarted];
 	} else {
 		playMusic [_musClass, 0];
-		0 fadeMusic GVAR(musVolume);
 
 		private _values = (GVAR(musQueue) get (groupId group player));
 		(_values select 0) set [2, _currentTime];

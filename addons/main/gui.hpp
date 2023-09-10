@@ -117,15 +117,6 @@ class GVAR(RadioMenu) {
 			w = QUOTE(6 * GUI_GRID_CENTER_W);
 			h = QUOTE(2 * GUI_GRID_CENTER_H);
 		};
-		class StopButton: ctrlXSliderH
-		{
-			idc = RADIO_MENU_VOLUME_IDC;
-			text = "Volume";
-			x = QUOTE(9 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
-			y = QUOTE(22.25 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
-			w = QUOTE(16 * GUI_GRID_CENTER_W);
-			h = QUOTE(1.5 * GUI_GRID_CENTER_H);
-		};
 		class Cancel: ctrlButtonClose
 		{
 			idc = 1602;
