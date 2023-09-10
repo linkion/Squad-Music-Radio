@@ -32,6 +32,7 @@ if ((_currentTime - _timeStarted) > _musDur && _timeStarted > 0) then {
 } else {
 	if  (_timeStarted > 0) then {
 		playMusic [_musClass, _currentTime - _timeStarted];
+		GVAR(currentSong) = GVAR(musicConfigs) get (toLower(_musClass));
 		systemChat format ["Resuming song: %1 at %2", _musName, _currentTime - _timeStarted];
 	} else {
 		playMusic [_musClass, 0];
@@ -39,6 +40,7 @@ if ((_currentTime - _timeStarted) > _musDur && _timeStarted > 0) then {
 		private _values = (GVAR(musQueue) get (groupId group player));
 		(_values select 0) set [2, _currentTime];
 		publicVariable QGVAR(musQueue);
+		GVAR(currentSong) = GVAR(musicConfigs) get (toLower(_musClass));
 
 		systemChat format ["Playing new song: %1", _musName];
 	};

@@ -126,6 +126,43 @@ class GVAR(RadioMenu) {
 			w = QUOTE(6 * GUI_GRID_CENTER_W);
 			h = QUOTE(2 * GUI_GRID_CENTER_H);
 		};
+		class nowPlayingStatic: ctrlStatic
+		{
+			x = QUOTE(14.5 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			y = QUOTE(20.75 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			w = QUOTE(16 * GUI_GRID_CENTER_W);
+			h = QUOTE(1.2 * GUI_GRID_CENTER_H);
+			text = "Now Playing";
+		};
+		class currentSongText: ctrlStatic
+		{
+			idc = RADIO_MENU_CURRENTSONGTEXT_IDC;
+			x = QUOTE(15.5 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			y = QUOTE(21.5 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			w = QUOTE(16 * GUI_GRID_CENTER_W);
+			h = QUOTE(1.5 * GUI_GRID_CENTER_H);
+			text = "Your mom's a hoe";
+			sizeEx = 0.05;
+		};
+		class progressBar: ctrlProgress
+		{
+			idc = RADIO_MENU_PROGRESSBAR_IDC;
+			x = QUOTE(14.5 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			y = QUOTE(22.85 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			w = QUOTE(18 * GUI_GRID_CENTER_W);
+			h = QUOTE(0.5 * GUI_GRID_CENTER_H);
+			colorFrame[] = {256,256,256,256};
+		};
+		class progressText: ctrlStatic
+		{
+			idc = RADIO_MENU_PROGRESSTEXT_IDC;
+			x = QUOTE(15.5 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			y = QUOTE(23.5 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			w = QUOTE(16 * GUI_GRID_CENTER_W);
+			h = QUOTE(1 * GUI_GRID_CENTER_H);
+			text = "00:00 / 00:00";
+			sizeEx = 0.03;
+		};
 		class Cancel: ctrlButtonClose
 		{
 			idc = 1602;
