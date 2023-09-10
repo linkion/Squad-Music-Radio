@@ -208,9 +208,9 @@ class GVAR(RadioMenu) {
 		{
 			idc = RADIO_MENU_LISTENERSLIST_IDC;
 			x = QUOTE(40.7 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
-			y = QUOTE(18.75 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			y = QUOTE(19.75 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
 			w = QUOTE(9.6 * GUI_GRID_CENTER_W);
-			h = QUOTE(6.25 * GUI_GRID_CENTER_H);
+			h = QUOTE(6 * GUI_GRID_CENTER_H);
 			sizeEx = 0.04;
 		};
 		class Cancel: ctrlButtonClose

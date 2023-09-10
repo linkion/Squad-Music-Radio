@@ -16,3 +16,12 @@ private _tempCount = 0;
 
 	_queueList lnbAddRow [str (_tempCount), _musName];
 } forEach (GVAR(musQueue) get (groupId group player));
+
+private _listenerList = findDisplay RADIO_MENU_IDD displayCtrl RADIO_MENU_LISTENERSLIST_IDC;
+lbClear _listenerList;
+
+{
+	// Current result is saved in variable _x
+	_listenerList lbAdd (name _x);
+	
+} forEach (GVAR(radioListeners) get (groupId group player));
