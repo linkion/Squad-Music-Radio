@@ -34,6 +34,7 @@ if (isNil QGVAR(musicConfigs)) then { [] call FUNC(getMusicConfigs); };
 for "_i" from 0 to (_ctrlTree tvCount []) do {
 	_ctrlTree tvSortByValue [[_i], true];
 };
+_ctrlTree tvSort [[], true];
 [] call FUNC(processQueueList);
 
 
@@ -90,6 +91,7 @@ _ctrlSkipButton ctrlAddEventHandler ["ButtonClick", {
 	} else {
 		_skipArray pushBackUnique player;
 	};
+	playMusic "";
 	[] call FUNC(processQueueList);
 }];
 
