@@ -10,11 +10,17 @@ private _tempArrayQueue = [];
 private _tempCount = 0;
 {
 	// Current result is saved in variable _x
-	_tempCount = _tempCount + 1;
+	if (_tempCount == 0) then {
+		_tempCount = _tempCount + 1;
+		continue;
+		//skip currently playing song
+	};
+	
 	private _musClass = _x # 0;
 	private _musName = (GVAR(musicConfigs) get (toLower(_musClass))) # 2;
 
 	_queueList lnbAddRow [str (_tempCount), _musName];
+	_tempCount = _tempCount + 1;
 } forEach (GVAR(musQueue) get (groupId group player));
 
 private _listenerList = findDisplay RADIO_MENU_IDD displayCtrl RADIO_MENU_LISTENERSLIST_IDC;
