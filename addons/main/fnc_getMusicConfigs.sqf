@@ -19,11 +19,12 @@ private _musicConfigHashMap = createHashMap;
 
 	private _theme = toLower(getText (_x >> "theme"));
 	if (isNil "_theme") then { _theme = "" };
-	_musicThemes pushBackUnique _theme;
+	
 	private _type = toLower (getText (_x >> "type"));
 	if (isNil "_type") then { _type = "" };
 	private _musicClass = toLower (getText (_x >> "musicClass"));
-	if (isNil "_musicClass") then { _musicClass = "" };
+	if (isNil "_musicClass" || _musicClass == "") then { _musicClass = "uncategorized" };
+	_musicThemes pushBackUnique _musicClass;
 	private _duration = getNumber (_x >> "duration");
 	if (isNil "_duration") then { _duration = 999 };
 

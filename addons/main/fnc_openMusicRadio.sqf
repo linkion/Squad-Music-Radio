@@ -18,7 +18,7 @@ if (isNil QGVAR(musicConfigs)) then { [] call FUNC(getMusicConfigs); };
 	// Current result is saved in variable _x
 	// values _y
 	_y params ["_configName", "_musicPath", "_name", "_theme", "_type", "_musicClass", "_config", "_duration"];
-	_musicFolder = GVAR(musicThemes) findIf { toLower(_x) == toLower(_theme)};
+	_musicFolder = GVAR(musicThemes) findIf { toLower(_x) == toLower(_musicClass)};
 	if (isNil "_musicFolder") then {
 		continue;
 	};
