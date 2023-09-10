@@ -5,8 +5,8 @@ private _musicConfigs = "true" configClasses (configFile >> "CfgMusic");
 private _musicConfigHashMap = createHashMap;
 {
 	// Current result is saved in variable _x
-	private _values = ["","","","","",""];
-	// "_configName","_musicPath","_name","_theme","_type","_musicClass"
+	private _values = ["","","","","","",""];
+	// "_configName","_musicPath","_name","_theme","_type","_musicClass","_config"
 	private _configName = configName _x;
 	private _musicPath = (_x >> "sound") select 0;
 	private _name = getText (_x >> "name");
@@ -22,8 +22,10 @@ private _musicConfigHashMap = createHashMap;
 	if (isNil "_type") then { _type = "" };
 	private _musicClass = toLower (getText (_x >> "musicClass"));
 	if (isNil "_musicClass") then { _musicClass = "" };
+	private _duration = getNumber (_x >> "duration");
+	if (isNil "_duration") then { _duration = 999 };
 
-	_values = [_configName, _musicPath, _name, _theme, _type, _musicClass];
+	_values = [_configName, _musicPath, _name, _theme, _type, _musicClass, _x, _duration];
 
 	_musicConfigHashMap insert [[toLower(configName _x), _values]];
 } forEach _musicConfigs;

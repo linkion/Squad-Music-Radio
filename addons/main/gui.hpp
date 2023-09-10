@@ -29,7 +29,7 @@ class GVAR(RadioMenu) {
 			type = 2;
 			style = "512";
 			x = QUOTE(1 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
-			y = QUOTE(1 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			y = QUOTE(1.25 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
 			w = QUOTE(38 * GUI_GRID_CENTER_W);
 			h = QUOTE(1 * GUI_GRID_CENTER_H);
 			font = "PuristaMedium";
@@ -52,9 +52,9 @@ class GVAR(RadioMenu) {
 			type = CT_TREE;
 			style = ST_LEFT;
 			x = QUOTE(1 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
-			y = QUOTE(2.5 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			y = QUOTE(2.75 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
 			w = QUOTE(38 * GUI_GRID_CENTER_W);
-			h = QUOTE(16 * GUI_GRID_CENTER_H);
+			h = QUOTE(18 * GUI_GRID_CENTER_H);
 			sizeEx = 0.04;
 			font = "RobotoCondensed";
 			colorText[] = {1,1,1,1};
@@ -122,9 +122,9 @@ class GVAR(RadioMenu) {
 			idc = RADIO_MENU_VOLUME_IDC;
 			text = "Volume";
 			x = QUOTE(9 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
-			y = QUOTE(22 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			y = QUOTE(22.25 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
 			w = QUOTE(16 * GUI_GRID_CENTER_W);
-			h = QUOTE(2 * GUI_GRID_CENTER_H);
+			h = QUOTE(1.5 * GUI_GRID_CENTER_H);
 		};
 		class Cancel: ctrlButtonClose
 		{

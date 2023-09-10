@@ -1,1 +1,0 @@
-#include "z\SMRA\addons\main\script_component.hpp"
