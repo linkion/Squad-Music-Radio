@@ -21,7 +21,6 @@ private _musicConfigHashMap = createHashMap;
 
 	private _theme = getText (configFile >> "CfgMusicClasses" >> getText (_x >> "musicClass") >> "displayName");
 	if (isNil "_theme") then { _theme = "uncategorized" };
-	systemChat str _theme;
 	_musicThemes pushBackUnique _theme;
 	
 	private _type = toLower (getText (_x >> "type"));
