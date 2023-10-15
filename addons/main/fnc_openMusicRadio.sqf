@@ -57,9 +57,9 @@ _ctrlQueueButton ctrlAddEventHandler ["ButtonClick", {
 	publicVariable QGVAR(musQueue);
 
 	if (GVAR(radioPower)) then {
-		[] remoteExecCall [QFUNC(processQueue), group player];
+		[] remoteExecCall [QFUNC(processQueue), GVAR(radioListeners) get (groupId group player)];
 	};
-	[] remoteExecCall [QFUNC(processQueueList), group player];
+	[] remoteExecCall [QFUNC(processQueueList), GVAR(radioListeners) get (groupId group player)];
 }];
 
 _ctrlSkipButton ctrlAddEventHandler ["ButtonClick", {
