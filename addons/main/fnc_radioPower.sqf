@@ -39,4 +39,11 @@ if (isNil QGVAR(musicEventHandle)) then {
 	}];
 };
 
+if (isNil(QGVAR(playerEventHandlerRadio))) then {
+	GVAR(player_event_handler_radio) = ["loadout", {
+		private _hasRad = [] call FUNC(hasRadio);
+		[_hasRad] call FUNC(radioPower);
+	}] call CBA_fnc_addPlayerEventHandler;
+};
+
 GVAR(radioPower)
