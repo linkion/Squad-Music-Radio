@@ -18,7 +18,7 @@ if (isNil QGVAR(musicConfigs)) then { [] call FUNC(getMusicConfigs); };
 	// Current result is saved in variable _x
 	// values _y
 	_y params ["_configName", "_musicPath", "_name", "_theme", "_type", "_musicClass", "_config", "_duration"];
-	_musicFolder = GVAR(musicThemes) findIf { toLower(_x) == toLower(_musicClass)};
+	_musicFolder = GVAR(musicThemes) findIf { toLower(_x) == toLower(_theme)};
 	if (isNil "_musicFolder") then {
 		continue;
 	};
@@ -34,7 +34,7 @@ if (isNil QGVAR(musicConfigs)) then { [] call FUNC(getMusicConfigs); };
 for "_i" from 0 to (_ctrlTree tvCount []) do {
 	_ctrlTree tvSortByValue [[_i], true];
 };
-_ctrlTree tvSort [[], true];
+_ctrlTree tvSort [[], false];
 [] call FUNC(processQueueList);
 
 

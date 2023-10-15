@@ -1,7 +1,9 @@
 #include "script_component.hpp"
 disableSerialization;
 
-private _musicConfigs = "true" configClasses (configFile >> "CfgMusic");
+private _musicConfigs = configProperties [missionConfigFile >> "CfgMusic", "getNumber (_x >> 'duration') > 0", true];
+_musicConfigs append configProperties [configFile >> "CfgMusic", "getNumber (_x >> 'duration') > 0", true];
+_musicConfigs append configProperties [campaignConfigFile >> "CfgMusic", "getNumber (_x >> 'duration') > 0", true];
 private _musicThemes = [];
 private _musicConfigHashMap = createHashMap;
 {
@@ -17,14 +19,15 @@ private _musicConfigHashMap = createHashMap;
 		continue;
 	};
 
-	private _theme = toLower(getText (_x >> "theme"));
-	if (isNil "_theme") then { _theme = "" };
+	private _theme = getText (configFile >> "CfgMusicClasses" >> getText (_x >> "musicClass") >> "displayName");
+	if (isNil "_theme") then { _theme = "uncategorized" };
+	systemChat str _theme;
+	_musicThemes pushBackUnique _theme;
 	
 	private _type = toLower (getText (_x >> "type"));
 	if (isNil "_type") then { _type = "" };
 	private _musicClass = toLower (getText (_x >> "musicClass"));
-	if (isNil "_musicClass" || _musicClass == "") then { _musicClass = "uncategorized" };
-	_musicThemes pushBackUnique _musicClass;
+	if (isNil "_musicClass" || _musicClass == "") then { _musicClass = "" };
 	private _duration = getNumber (_x >> "duration");
 	if (isNil "_duration") then { _duration = 999 };
 
