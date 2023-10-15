@@ -12,24 +12,33 @@ class CfgVehicles {
                     icon = "";
                     class GVAR(RadioPowerOn) {
                         displayName = "Radio Power On";
-                        condition = QUOTE(true);
+                        condition = QUOTE(!GVAR(radioPower));
                         icon = QUOTE();
                         statement = QUOTE([true] call FUNC(radioPower));
                     };
                     class GVAR(RadioPowerOff) {
                         displayName = "Radio Power Off";
-                        condition = QUOTE(true);
+                        condition = QUOTE(GVAR(radioPower));
                         icon = QUOTE();
                         statement = QUOTE([false] call FUNC(radioPower));
                     };
                     class GVAR(TuneRadio) {
                         displayName = "Tune Radio";
-                        condition = QUOTE(true);
+                        condition = QUOTE(GVAR(radioPower));
                         icon = QUOTE();
                         statement = QUOTE([] call FUNC(openMusicRadio));
                     };
                 };
             };
         };
+    };
+};
+
+class Extended_EventHandlers;   	// External class reference
+class Extended_PostInit_EventHandlers
+{
+    class SMRA_postInitCalls
+    {
+        clientInit = QUOTE(GVAR(radioPower) = false);
     };
 };
