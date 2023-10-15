@@ -39,6 +39,6 @@ class Extended_PostInit_EventHandlers
 {
     class SMRA_postInitCalls
     {
-        clientInit = QUOTE(GVAR(radioPower) = false);
+        clientInit = QUOTE(GVAR(radioPower) = false; [false] call FUNC(radioPower));
     };
 };
