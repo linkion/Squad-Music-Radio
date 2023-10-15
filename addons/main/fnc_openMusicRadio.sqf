@@ -102,8 +102,11 @@ onEachFrame {
 	private _ctrlProgressText = findDisplay RADIO_MENU_IDD displayCtrl RADIO_MENU_PROGRESSTEXT_IDC;
 	private _ctrlCurrentSongText = findDisplay RADIO_MENU_IDD displayCtrl RADIO_MENU_CURRENTSONGTEXT_IDC;
 	private _duration = GVAR(currentSong) # 7;
-
-	_ctrlProgressBar progressSetPosition (getMusicPlayedTime/_duration);
+	if (_duration == 0) then {
+		_ctrlProgressBar progressSetPosition 0;
+	} else {
+		_ctrlProgressBar progressSetPosition (getMusicPlayedTime/_duration);
+	};
 	_ctrlProgressBar ctrlCommit 0;
 	_ctrlProgressText ctrlSetText format ["%1 / %2", [getMusicPlayedTime, "MM:SS"] call BIS_fnc_secondsToString, [_duration, "MM:SS"] call BIS_fnc_secondsToString];
 	_ctrlCurrentSongText ctrlSetText GVAR(currentSong) # 2;
