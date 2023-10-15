@@ -57,9 +57,9 @@ _ctrlQueueButton ctrlAddEventHandler ["ButtonClick", {
 	publicVariable QGVAR(musQueue);
 
 	if (GVAR(radioPower)) then {
-		[] call FUNC(processQueue);
+		[] remoteExecCall [QFUNC(processQueue), group player];
 	};
-	[] call FUNC(processQueueList);
+	[] remoteExecCall [QFUNC(processQueueList), group player];
 }];
 
 _ctrlSkipButton ctrlAddEventHandler ["ButtonClick", {
@@ -80,16 +80,18 @@ _ctrlSkipButton ctrlAddEventHandler ["ButtonClick", {
 	_votes = _votes + 1;
 	private _votesNeeded = count _listeners;
 
-	player groupChat format ["I'd like to skip the current song (%1/%2)", _votes, _votesNeeded];
+	private _str = format ["I'd like to skip the current song (%1/%2)", _votes, _votesNeeded];
+	[player, _str] remoteExec ["groupChat"];
 	if (_votes >= _votesNeeded) then {
-		player groupChat "Skipping...";
+		systemChat "Skipping...";
 		
 		_currentQueue deleteAt 0;
 
 		publicVariable QGVAR(musQueue);
-		remoteExec [QFUNC(processQueue), _listeners];
+		remoteExecCall [QFUNC(processQueue), _listeners];
 	} else {
 		_skipArray pushBackUnique player;
+		publicVariable GVAR(radioSkip);
 	};
 	playMusic "";
 	[] call FUNC(processQueueList);
