@@ -31,7 +31,9 @@ if (_power) then {
 	publicVariable QGVAR(radioListeners);
 };
 
-[] remoteExecCall [QFUNC(processQueueList), GVAR(radioListeners) get (groupId group player)];
+if (count GVAR(radioListeners) > 1) then {
+	[] remoteExecCall [QFUNC(processQueueList), GVAR(radioListeners) get (groupId group player)];
+};
 
 if (isNil QGVAR(musicEventHandle)) then {
 	GVAR(musicEventHandle) = addMusicEventHandler ["MusicStop", {
