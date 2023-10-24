@@ -27,7 +27,9 @@ private _listenerList = findDisplay RADIO_MENU_IDD displayCtrl RADIO_MENU_LISTEN
 lbClear _listenerList;
 
 {
-	// Current result is saved in variable _x
-	_listenerList lbAdd (name _x);
-	
+	if (!alive _x) then {
+		(GVAR(radioListeners) get (groupId group player)) deleteAt _forEachIndex;
+	} else {
+		_listenerList lbAdd (name _x);
+	};
 } forEach (GVAR(radioListeners) get (groupId group player));
